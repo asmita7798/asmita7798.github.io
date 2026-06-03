@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Asmita Sengupta</title>
+<meta name="description" content="Asmita Sengupta — Computer Science researcher in applied machine learning, NLP, knowledge graphs, and anomaly detection." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #f7f9fc;
+    --bg-2: #eef3fb;
+    --surface: #ffffff;
+    --fg: #1c2433;
+    --fg-soft: #5d6b82;
+    --accent: #3f7cd6;        /* soft blue */
+    --accent-deep: #2b5fb0;
+    --accent-2: #7aa7e6;      /* lighter blue */
+    --line: #dde6f2;
+    --maxw: 1040px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Spectral", Georgia, serif;
+    font-size: 19px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent-2); color: #fff; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+  a { color: var(--accent-deep); text-decoration: none; }
+  a:hover { color: var(--accent); }
+
+  .mono {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* TOP NAV */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(247,249,252,0.85);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topnav-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .topnav .brand {
+    font-family: "Syne", sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+  }
+  .topnav .brand:hover { color: var(--accent-deep); }
+  .topnav .navlinks {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+  .topnav .navlinks a {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-soft);
+    transition: color .2s ease;
+  }
+  .topnav .navlinks a:hover { color: var(--accent-deep); }
+  .topnav .navlinks a.active { color: var(--accent-deep); }
+  .topnav .navright { display: flex; align-items: center; gap: 22px; }
+  .topnav .navsocial { display: flex; align-items: center; gap: 14px; }
+  .topnav .navsocial a { color: var(--fg-soft); display: inline-flex; transition: color .2s ease; }
+  .topnav .navsocial a:hover { color: var(--accent-deep); }
+  .topnav .navsocial svg { width: 17px; height: 17px; }
+  @media (max-width: 720px) {
+    .topnav .navlinks { display: none; }
+    .topnav-inner { justify-content: space-between; }
+  }
+
+  /* HERO */
+  header.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-label { color: var(--accent-deep); margin-bottom: 26px; display: block; animation: fade .8s both; }
+  h1 {
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+    font-size: clamp(3.2rem, 9vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    margin: 0 0 28px;
+    animation: fade .8s .08s both;
+  }
+  h1 .line2 { color: var(--accent); }
+  .tagline {
+    font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+    color: var(--fg-soft);
+    max-width: 40ch;
+    margin: 0 0 32px;
+    font-weight: 400;
+    animation: fade .8s .16s both;
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; animation: fade .8s .24s both; }
+  .btn {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 13px 22px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--fg);
+    background: var(--surface);
+    transition: all .2s ease;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent-deep); transform: translateY(-2px); }
+  .btn.solid { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn.solid:hover { background: var(--accent-deep); border-color: var(--accent-deep); color: #fff; }
+
+  .portrait {
+    width: 230px; height: 290px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    animation: fade 1s .2s both;
+  }
+
+  @keyframes fade { from { opacity:0; transform: translateY(22px);} to {opacity:1; transform:none;} }
+
+  /* SECTION SHELL */
+  section { padding: 96px 0; border-bottom: 1px solid var(--line); position: relative; scroll-margin-top: 64px; }
+  .sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 44px; }
+  .sec-num { color: var(--accent); }
+  .sec-title {
+    font-family: "Syne", sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .prose { max-width: 62ch; }
+  .prose p { margin: 0 0 20px; }
+  .prose em { color: var(--accent-deep); font-style: italic; }
+  .prose p:last-child { margin: 0; }
+
+  /* ABOUT two-column with art decor */
+  .about-grid { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; }
+  .about-art { margin: 0; flex-shrink: 0; }
+  .about-art img {
+    width: 240px;
+    max-width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    display: block;
+  }
+  .about-art figcaption { color: var(--fg-soft); margin-top: 10px; text-align: center; }
+  @media (max-width: 760px) {
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .about-art img { width: 200px; }
+  }
+
+  /* EDUCATION */
+  .edu-list { display: flex; flex-direction: column; }
+  .edu {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 28px;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .edu:last-child { border-bottom: 1px solid var(--line); }
+  .edu-when { color: var(--accent-deep); padding-top: 4px; }
+  .edu-what h3 { font-family:"Syne",sans-serif; font-weight:600; font-size:1.2rem; margin:0 0 4px; letter-spacing:-0.01em; }
+  .edu-what p { margin:0; color:var(--fg-soft); font-weight:400; font-size:1rem; }
+
+  /* INTERESTS */
+  .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .cell { background: var(--surface); padding: 30px 26px; transition: background .25s ease; }
+  .cell:hover { background: var(--bg-2); }
+  .cell .k { color: var(--accent); margin-bottom: 14px; display: block; }
+  .cell h3 { font-family:"Syne",sans-serif; font-weight:600; font-size:1.2rem; margin:0 0 8px; letter-spacing:-0.01em; }
+  .cell p { margin:0; font-size:0.98rem; color:var(--fg-soft); font-weight:400; line-height:1.55; }
+
+  /* PROJECTS */
+  .project {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 28px;
+    align-items: start;
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+    transition: padding-left .25s ease;
+  }
+  .project:hover { padding-left: 12px; }
+  .project:last-child { border-bottom: 1px solid var(--line); }
+  .project .pnum { font-family:"Syne",sans-serif; font-weight:700; font-size:1.6rem; color:var(--line); }
+  .project:hover .pnum { color: var(--accent); }
+  .project h3 { font-family:"Syne",sans-serif; font-weight:600; font-size:1.4rem; margin:0 0 8px; letter-spacing:-0.01em; }
+  .project p { margin:0 0 12px; color:var(--fg-soft); font-weight:400; font-size:1.02rem; max-width:60ch; }
+  .stack { display:flex; flex-wrap:wrap; gap:8px; }
+  .tag { font-family:"JetBrains Mono",monospace; font-size:0.68rem; letter-spacing:0.06em; padding:4px 10px; border:1px solid var(--line); border-radius:4px; color:var(--fg-soft); background:var(--surface); }
+  .project .plink { white-space:nowrap; }
+
+  /* TECH STRIP */
+  .techstrip { display:flex; align-items:baseline; gap:20px; padding-top:30px; margin-top:8px; flex-wrap:wrap; }
+  .techlabel { color: var(--accent-deep); }
+  .techtags { display:flex; flex-wrap:wrap; gap:8px; }
+
+  /* PUBLICATIONS */
+  .pub { padding: 28px 0; border-top: 1px solid var(--line); }
+  .pub:last-child { border-bottom: 1px solid var(--line); }
+  .pub .pt { font-family:"Syne",sans-serif; font-weight:600; font-size:1.25rem; margin:0 0 8px; line-height:1.25; letter-spacing:-0.01em; }
+  .pub .pa { margin:0 0 4px; color:var(--fg-soft); font-size:1rem; font-weight:400; }
+  .pub .pa .me { color: var(--fg); font-weight:500; }
+  .pub .pv { margin:0 0 10px; color:var(--accent-deep); font-size:0.92rem; font-family:"JetBrains Mono",monospace; letter-spacing:0.03em; }
+
+  /* CONTACT */
+  .contact-row { display:flex; flex-wrap:wrap; gap:14px; }
+  .contact-row a {
+    font-family:"JetBrains Mono",monospace; font-size:0.82rem; letter-spacing:0.06em;
+    padding:14px 22px; border:1px solid var(--line); border-radius:4px; color:var(--fg); background:var(--surface);
+    display:inline-flex; align-items:center; gap:10px; transition: all .2s ease;
+  }
+  .contact-row a:hover { border-color:var(--accent); color:var(--accent-deep); transform:translateY(-2px); }
+  .contact-row svg { width:17px; height:17px; }
+
+  footer { padding:60px 0; text-align:center; }
+  footer .mono { color: var(--fg-soft); }
+  footer .dot { color: var(--accent); }
+
+  .reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity:1; transform:none; }
+
+  @media (max-width: 720px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .portrait { width: 150px; height: 190px; order: -1; }
+    section { padding: 64px 0; }
+    .project { grid-template-columns: 1fr; gap: 12px; }
+    .project .pnum { font-size:1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="#top">Asmita Sengupta</a>
+    <div class="navright">
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="navsocial">
+        <a href="https://www.linkedin.com/in/asmitasengupta7" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.4 8.75 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg>
+        </a>
+        <a href="https://github.com/asmita7798" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="mono hero-label">Computer Science // Machine Learning</span>
+      <h1>Asmita<br/><span class="line2">Sengupta.</span></h1>
+      <p class="tagline">I build machine-learning systems that hold up on real, messy, high-stakes data.</p>
+      <div class="cta-row">
+        <a class="btn solid" href="#projects">View projects</a>
+        <a class="btn" href="cv.pdf" target="_blank" rel="noopener">CV ↗</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </div>
+    <!-- TODO: replace photo.jpg with your headshot (portrait crop works here) -->
+    <img class="portrait" src="photo.jpg" alt="Asmita Sengupta" onerror="this.style.display='none'" />
+  </div>
+</header>
+
+<main>
+
+  <!-- ABOUT -->
+  <section id="about" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono sec-num">01</span>
+        <h2 class="sec-title">About</h2>
+      </div>
+      <div class="about-grid">
+        <div class="prose">
+          <p>I'm a Master's student in Computer Science (Intelligent Systems) at RPTU Kaiserslautern-Landau, finishing my thesis in 2026. My work lives where machine learning meets the real world — data that's large, messy, and consequential.</p>
+          <p>One question keeps pulling me forward: <em>how do we know a model is right?</em> Turning thousands of biomedical documents into structured knowledge, detecting anomalies in industrial sensor streams, measuring how reliably research is reported — I keep landing in the same place, that data and the way we represent it decide whether a system can be trusted.</p>
+          <p>Off-screen, I illustrate, bake, and travel whenever I can.</p>
+        </div>
+        <figure class="about-art">
+          <!-- TODO: replace art.jpg with your favourite pen-and-ink illustration -->
+          <img src="art.jpg" alt="Pen-and-ink illustration by Asmita Sengupta" onerror="this.parentNode.style.display='none'" />
+          <figcaption class="mono">Ink &middot; from my sketchbook</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono sec-num">02</span>
+        <h2 class="sec-title">Education</h2>
+      </div>
+      <div class="edu-list">
+        <div class="edu">
+          <div class="edu-when mono">2023 — 2026</div>
+          <div class="edu-what">
+            <h3>M.Sc. Computer Science — Intelligent Systems</h3>
+            <p>RPTU Kaiserslautern-Landau, Germany</p>
+          </div>
+        </div>
+        <div class="edu">
+          <div class="edu-when mono">2017 — 2021</div>
+          <div class="edu-what">
+            <h3>B.Tech. Computer Science &amp; Engineering</h3>
+            <p>RCC Institute of Information Technology, Kolkata, India</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono sec-num">03</span>
+        <h2 class="sec-title">Experience</h2>
+      </div>
+      <div class="edu-list">
+        <div class="edu">
+          <div class="edu-when mono">2025 — now</div>
+          <div class="edu-what">
+            <h3>Student Research Assistant</h3>
+            <p>Visual Information Analysis Group, RPTU — Master's thesis on anomaly detection</p>
+          </div>
+        </div>
+        <div class="edu">
+          <div class="edu-when mono">2024 — 2025</div>
+          <div class="edu-what">
+            <h3>Student Research Assistant — Data Science</h3>
+            <p>German Research Center for Artificial Intelligence (DFKI)</p>
+          </div>
+        </div>
+        <div class="edu">
+          <div class="edu-when mono">2024 — 2025</div>
+          <div class="edu-what">
+            <h3>Student Research Assistant</h3>
+            <p>Dept. of Electrical &amp; Information Technology, RPTU</p>
+          </div>
+        </div>
+        <div class="edu">
+          <div class="edu-when mono">2021 — 2023</div>
+          <div class="edu-what">
+            <h3>Security Consultant</h3>
+            <p>PricewaterhouseCoopers (PwC), Kolkata, India</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono sec-num">04</span>
+        <h2 class="sec-title">Research interests</h2>
+      </div>
+      <div class="grid4">
+        <div class="cell">
+          <span class="mono k">/ 01</span>
+          <h3>ML for real-world data</h3>
+          <p>Applied machine learning on data that's large, messy, and high-stakes — making it work reliably in practice.</p>
+        </div>
+        <div class="cell">
+          <span class="mono k">/ 02</span>
+          <h3>Knowledge graphs &amp; LLMs</h3>
+          <p>Turning unstructured text into structured knowledge, and how data shapes what models extract.</p>
+        </div>
+        <div class="cell">
+          <span class="mono k">/ 03</span>
+          <h3>Anomaly detection</h3>
+          <p>Semi-supervised detection in multivariate time-series under limited supervision.</p>
+        </div>
+        <div class="cell">
+          <span class="mono k">/ 04</span>
+          <h3>NLP &amp; information extraction</h3>
+          <p>Pulling reliable, structured information out of text, and studying the scientific literature itself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono sec-num">05</span>
+        <h2 class="sec-title">Selected projects</h2>
+      </div>
+
+      <div class="project">
+        <span class="pnum">01</span>
+        <div>
+          <h3>Semi-supervised anomaly detection in time-series</h3>
+          <p>My ongoing Master's thesis: detecting anomalies in multivariate sensor data from an industrial distillation process, using a forecasting-based pipeline with residual scoring and adaptive thresholding under limited supervision.</p>
+          <div class="stack">
+            <span class="tag">Python</span><span class="tag">Time-Series</span><span class="tag">Deep Learning</span><span class="tag">Anomaly Detection</span>
+          </div>
+        </div>
+        <span class="plink mono" style="color:var(--accent-deep)">ongoing</span>
+      </div>
+
+      <div class="project">
+        <span class="pnum">02</span>
+        <div>
+          <h3>MEDAKA — biomedical knowledge graphs</h3>
+          <p>An end-to-end LLM pipeline transforming 13,000+ drug leaflets into a structured knowledge graph, with a human-in-the-loop and LLM-as-a-judge evaluation framework. Built to be reliable in a high-stakes domain.</p>
+          <div class="stack">
+            <span class="tag">Python</span><span class="tag">LLMs</span><span class="tag">Knowledge Graphs</span><span class="tag">Evaluation</span>
+          </div>
+        </div>
+        <a class="plink mono" href="https://github.com/medaka25/medaka-25">code ↗</a>
+      </div>
+
+      <div class="project">
+        <span class="pnum">03</span>
+        <div>
+          <h3>Reproducibility reporting in AI research</h3>
+          <p>A large-scale metascience pipeline combining rule-based NLP, zero-shot LLMs, and hybrid verification to measure reproducibility reporting across 3,000+ papers from NeurIPS, ACL, and AAAI — reaching 92% accuracy and 0.84 Cohen's κ.</p>
+          <div class="stack">
+            <span class="tag">Python</span><span class="tag">Hugging Face</span><span class="tag">GROBID</span><span class="tag">NLP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <span class="pnum">04</span>
+        <div>
+          <h3>IMDb Top 1000 — data visualization dashboard</h3>
+          <p>An interactive dashboard exploring a century of film data (1920–2020): revenue trends, genre distributions, collaboration networks, and a rule-based recommender — built with bubble charts, heatmaps, and network graphs.</p>
+          <div class="stack">
+            <span class="tag">Svelte</span><span class="tag">D3.js</span><span class="tag">Data Viz</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="techstrip">
+        <span class="mono techlabel">Toolkit</span>
+        <div class="techtags">
+          <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Hugging Face</span><span class="tag">Transformers</span><span class="tag">scikit-learn</span><span class="tag">Pandas</span><span class="tag">D3.js</span><span class="tag">SQL</span><span class="tag">Git</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono sec-num">06</span>
+        <h2 class="sec-title">Publications</h2>
+      </div>
+
+      <div class="pub">
+        <p class="pt">MEDAKA: Construction of Biomedical Knowledge Graphs Using Large Language Models</p>
+        <p class="pa"><span class="me">Sengupta, A.</span>, Selby, D. A., Vollmer, S. J., Großmann, G.</p>
+        <p class="pv">2025 · under review @ ACM CIKM 2026</p>
+        <a class="mono" href="https://arxiv.org/abs/2509.26128">arXiv:2509.26128 ↗</a>
+      </div>
+
+      <div class="pub">
+        <p class="pt">Automated Verification of Reproducibility Reporting in AI Research</p>
+        <p class="pa"><span class="me">Sengupta, A.</span>, Selby, D. A., Vollmer, S. J.</p>
+        <p class="pv">2026 · under review @ IJCAI-ECAI 2026 CLEAR-AI workshop</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="reveal" style="border-bottom:none;">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono sec-num">07</span>
+        <h2 class="sec-title">Get in touch</h2>
+      </div>
+      <div class="prose" style="margin-bottom:30px;">
+        <p>Always glad to talk research, collaboration, or PhD opportunities.</p>
+      </div>
+      <div class="contact-row">
+        <a href="mailto:asmita.sengupta7@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Email
+        </a>
+        <a href="https://linkedin.com/in/asmitasengupta7">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.4 8.75 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/asmita7798">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="mono">Asmita Sengupta <span class="dot">●</span> Kaiserslautern, DE <span class="dot">●</span> 2026</p>
+  </div>
+</footer>
+
+<script>
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.scrollTo(0, 0);
+  const obs = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  const navLinks = Array.from(document.querySelectorAll('.navlinks a'));
+  const spy = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  navLinks.forEach(a=>{
+    const sec = document.querySelector(a.getAttribute('href'));
+    if(sec) spy.observe(sec);
+  });
+</script>
+
+</body>
+</html>
