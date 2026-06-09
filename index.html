@@ -53,7 +53,7 @@
   /* ---- about / hero ---- */
   .about{padding-top:54px;}
   .about .grid{display:grid;grid-template-columns:1fr;gap:26px;justify-items:center;}
-  .bio{font-family:var(--serif);font-size:21px;line-height:1.62;color:var(--ink);margin:0;text-align:center;}
+  .bio{font-family:var(--serif);font-size:21px;line-height:1.62;color:var(--ink);margin:0 auto;max-width:800px;text-align:left;}
   .bio + .bio{margin-top:16px;}
   .bio .name{font-weight:600;}
   .photo{width:256px;height:300px;object-fit:cover;border-radius:10px;border:1px solid var(--hair);}
@@ -129,13 +129,9 @@
       <img class="photo" src="photo.jpg" alt="Asmita Sengupta" />
       <div>
         <p class="bio">
-          Hi, my name is <span class="name">Asmita Sengupta</span>. I'm a Master's student in
-          Computer Science at <a href="https://rptu.de/en/">RPTU Kaiserslautern-Landau</a>,
-          majoring in Intelligent Systems with a minor in Visualisation and Scientific Computing,
-          and finishing my thesis in 2026 in the
-          <a href="https://vis.cs.rptu.de/team/leitte/">Visual Information Analysis Group</a>. Previously I was
-          a research assistant at the
-          <a href="https://www.dfki.de/en/web">German Research Center for Artificial Intelligence (DFKI)</a>.
+          Hi, my name is Asmita Sengupta. I'm a Master's student in Computer Science at RPTU Kaiserslautern-Landau, majoring in Intelligent Systems with a minor in Visualisation and Scientific Computing. 
+          I am currently a student research assistant in the <a href="https://vis.cs.rptu.de/team/leitte/">Visual Information Analysis Group</a> at RPTU, where I am also completing my Master's thesis. 
+          Previously, I worked as a research assistant in the <a href="https://dsa.dfki.de">Data Science and Its Applications Group</a> at the German Research Center for Artificial Intelligence (DFKI).
         </p>
         <p class="bio">
           My research interests lie in natural language processing, machine learning, and applied AI, particularly in anomaly 
@@ -182,19 +178,6 @@
 
     <div class="project">
       <div class="head">
-        <h3>Construction of Biomedical Knowledge Graphs Using Large Language Models</h3>
-        <span class="status">Under review</span>
-      </div>
-      <p>An LLM pipeline that turns 13,000+ drug leaflets into a structured knowledge graph, with quality
-        checked through both human review and an LLM-as-a-judge framework.</p>
-      <div class="meta">
-        <div class="tags"><span class="tag">Python</span><span class="tag">LLMs</span><span class="tag">Knowledge graphs</span></div>
-        <div class="plinks"><a href="https://arxiv.org/abs/2509.26128">paper ↗</a><a href="https://github.com/medaka25/medaka-25">code ↗</a></div>
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="head">
         <h3>Automated Auditing of Reproducibility Reporting in AI Research</h3>
         <span class="status">Under review</span>
       </div>
@@ -208,9 +191,23 @@
       </div>
     </div>
 
+        <div class="project">
+      <div class="head">
+        <h3>Construction of Biomedical Knowledge Graphs Using Large Language Models Using Large Language Models</h3>
+        <span class="status">Under review</span>
+      </div>
+      <p>An LLM pipeline that turns 13,000+ drug leaflets into a structured knowledge graph, with quality
+        checked through both human review and an LLM-as-a-judge framework.</p>
+      <div class="meta">
+        <div class="tags"><span class="tag">Python</span><span class="tag">LLMs</span><span class="tag">Knowledge graphs</span></div>
+        <div class="plinks"><a href="https://arxiv.org/abs/2509.26128">paper ↗</a><a href="https://github.com/medaka25/medaka-25">code ↗</a></div>
+      </div>
+    </div>
+
     <div class="project">
       <div class="head">
         <h3>A Century of Cinema: Visual Analytics Dashboard</h3>
+            <span class="status">Completed</span>
       </div>
       <p>An interactive dashboard for a century of film data (1920–2020), covering revenue, genres, and
         the networks of who worked with whom, plus a simple recommender for similar titles. Built with
