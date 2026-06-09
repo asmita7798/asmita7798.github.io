@@ -7,6 +7,8 @@
 <title>Asmita Sengupta</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root{
@@ -50,12 +52,12 @@
 
   /* ---- about / hero ---- */
   .about{padding-top:54px;}
-  .about .grid{display:grid;grid-template-columns:1fr 256px;gap:46px;align-items:start;}
-  .bio{font-family:var(--serif);font-size:21px;line-height:1.62;color:var(--ink);margin:0;}
+  .about .grid{display:grid;grid-template-columns:1fr;gap:26px;justify-items:center;}
+  .bio{font-family:var(--serif);font-size:21px;line-height:1.62;color:var(--ink);margin:0;text-align:center;}
   .bio + .bio{margin-top:16px;}
   .bio .name{font-weight:600;}
   .photo{width:256px;height:300px;object-fit:cover;border-radius:10px;border:1px solid var(--hair);}
-  .contact-row{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;}
+  .contact-row{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
   .contact-row a{
     font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;
     padding:8px 14px;border:1px solid var(--hair);border-radius:7px;
@@ -124,6 +126,7 @@
 <section class="about" id="about">
   <div class="wrap">
     <div class="grid">
+      <img class="photo" src="photo.jpg" alt="Asmita Sengupta" />
       <div>
         <p class="bio">
           Hi, my name is <span class="name">Asmita Sengupta</span>. I'm a Master's student in
@@ -135,25 +138,33 @@
           <a href="https://www.dfki.de/en/web">German Research Center for Artificial Intelligence (DFKI)</a>.
         </p>
         <p class="bio">
-          My research interests lie in natural language processing and machine learning, particularly
-          in anomaly detection in time-series, applications of LLMs for structured knowledge generation,
-          and AI for open science.
+          My research interests lie in natural language processing, machine learning, and applied AI, particularly in anomaly 
+          detection for time-series data and the use of large language models to extract and structure knowledge from 
+          scientific and biomedical literature. I am also interested in AI methods that promote transparency and reproducibility in science.
         </p>
         <div class="contact-row">
-          <a class="primary" href="cv.pdf">CV ↗</a>
-          <a href="mailto:asmita.sengupta7@gmail.com">Email</a>
-          <a href="https://linkedin.com/in/asmitasengupta7">LinkedIn</a>
-          <a href="https://github.com/asmita7798">GitHub</a>
-        </div>
+        <a class="primary" href="cv.pdf">CV ↗</a>
+
+        <a href="mailto:asmita.sengupta7@gmail.com" title="Email">
+        <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <a href="https://linkedin.com/in/asmitasengupta7" title="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+        </a>
+
+        <a href="https://github.com/asmita7798" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+        </a>
       </div>
-      <img class="photo" src="photo.jpg" alt="Asmita Sengupta" />
+      </div>
     </div>
   </div>
 </section>
 
 <section id="projects">
   <div class="wrap">
-    <p class="eyebrow">Selected projects</p>
+    <p class="eyebrow">Selected Projects</p>
 
     <div class="project">
       <div class="head">
@@ -171,7 +182,7 @@
 
     <div class="project">
       <div class="head">
-        <h3>MEDAKA: Biomedical Knowledge Graphs</h3>
+        <h3>Construction of Biomedical Knowledge Graphs Using Large Language Models</h3>
         <span class="status">Under review</span>
       </div>
       <p>An LLM pipeline that turns 13,000+ drug leaflets into a structured knowledge graph, with quality
@@ -187,9 +198,10 @@
         <h3>Automated Auditing of Reproducibility Reporting in AI Research</h3>
         <span class="status">Under review</span>
       </div>
-      <p>A pipeline that audits how reproducibly AI papers report their work, combining rule-based NLP
-        with zero-shot LLMs. I ran it across 3,000+ papers from NeurIPS, ACL, and AAAI, reaching 92%
-        accuracy and 0.84 Cohen's κ against a hand-annotated benchmark.</p>
+      <p>An automated pipeline for auditing reproducibility reporting in AI papers using rule-based NLP and zero-shot LLMs. 
+        Evaluated on a manually annotated benchmark of 60 papers, it achieved 92% accuracy and a Cohen's κ of 0.84. 
+        The framework was then applied to over 3,000 papers from NeurIPS, ACL, 
+        and AAAI to analyze reporting practices across venues and over time.</p>
       <div class="meta">
         <div class="tags"><span class="tag">Python</span><span class="tag">GROBID</span><span class="tag">AI for Open Science</span></div>
         <div class="plinks"><a href="https://github.com/asmita7798/Reprocheck">code ↗</a></div>
